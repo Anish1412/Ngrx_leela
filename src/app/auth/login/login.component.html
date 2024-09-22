@@ -1,0 +1,25 @@
+
+<div class="row justify-content-center">
+    <h1 class="text-center mb-4 mt-4">Login Form</h1>
+    <div class="col-md-5">
+        <form [formGroup]="LoginForm" class="card bg-dark rounded-5 p-4" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="e" class="form-label text-white"><h5>Email</h5></label>
+                <input type="email" class="form-control" name="" formControlName="email" id="e" placeholder="Enter email here..." required>
+                <small class="text-danger">{{ emailError() }}</small>
+            </div>
+            <div class="form-group">
+                <label for="p" class="form-label text-white mt-3"><h5>Password</h5></label>
+                <input type="password" class="form-control" name="" formControlName="password" id="p" placeholder="Enter password here..." required>
+                <small class="text-danger">{{ PasswordError() }}</small>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mt-3">
+                    <button type="submit" class="btn btn-primary" [disabled]="LoginForm.invalid">Login</button>
+                    <button type="reset" class="btn btn-danger mx-1">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- <p>Login works!!</p> -->

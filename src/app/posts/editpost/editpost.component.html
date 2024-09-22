@@ -1,0 +1,23 @@
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="text-center">Update Post</h2>
+        <form [formGroup]="updateData" class="card border bg-dark rounded-4 p-4" (ngSubmit)="updatePost()">
+            <div class="form-group">
+                <label for="t" class="form-label text-white"><h5>Title</h5></label>
+                <input type="text" name="" id="t" formControlName="title" class="form-control" placeholder="Enter title here...">
+                <small class="text-danger" *ngIf="updateData.get('title')?.errors?.['required'] && updateData.get('title')?.touched && updateData.get('title')?.invalid">Title field is compulsory...</small>
+                <small class="text-danger" *ngIf="updateData.get('title')?.errors?.['minlength']">Minimum 6 characters are compulsory...</small>
+            </div>
+            <div class="form-group">
+                <label for="d" class="form-label text-white mt-3"><h5>Description</h5></label><br>
+                <textarea name="" id="d" cols="45" rows="5" formControlName="content" class="form-control" placeholder="Enter description here..."></textarea>
+                <small class="text-danger">{{ descriptionError() }}</small>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mt-3">
+                    <input type="submit" value="Update Post" class="btn btn-primary" [disabled]="updateData.invalid">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

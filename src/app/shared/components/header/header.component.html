@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary p-4">
+    <a href="#" class="navbar-brand text-white">NGRX</a>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#demo">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="justify-content-start collapse navbar-collapse" id="demo">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link text-white fs-5" [routerLink]="['']">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white fs-5" [routerLink]="['counter']">Counter</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white fs-5" [routerLink]="['posts']">Posts</a></li>
+            <li class="nav-item" *ngIf="!(isAuthenticated | async)"><a class="nav-link text-white fs-5" [routerLink]="['auth']">Login</a></li>
+            <li class="nav-item" *ngIf="!(isAuthenticated | async)"><a class="nav-link text-white fs-5" [routerLink]="['auth/Signup']">Signup</a></li>
+            <li class="nav-item" *ngIf="isAuthenticated | async"><a href="#" (click)="autoLogout($event)" class="nav-link text-white fs-5">Logout</a></li>
+        </ul>
+    </div>
+</nav>
